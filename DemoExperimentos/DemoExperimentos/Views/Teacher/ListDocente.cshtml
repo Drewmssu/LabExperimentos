@@ -9,17 +9,17 @@
         <form class="form-horizontal" action="@Url.Action("ListDocente", "Teacher", new { Filtro = Model.Filtro })">
             <div class="form-group">
                 <label>Filtrar por Apellido</label>
-                @Html.TextBoxFor(x => x.Filtro, new { @class = "form-control" })
+                @Html.TextBoxFor(x => x.Filtro, new { @id = "filtrado", @class = "form-control" })
             </div>
             <div class="form-group">
-                <button class="btn btn-primary btn-sm">Filtrar</button>
-                <a href="@Url.Action("Li    stDocente", "Teacher")" class="btn btn-sm btn-primary">Refresh</a>
+                <button id="filtrar-boton" class="btn btn-primary btn-sm">Filtrar</button>
+                <a href="@Url.Action("ListDocente", "Teacher")" class="btn btn-sm btn-primary">Refresh</a>
             </div>
         </form>
     </div>
 </div>
 <br />
-<a href="@Url.Action("AddEditDocente", "Teacher")" class="btn btn-success btn-sm pull-right">Nuevo Docente</a>
+<a href="@Url.Action("AddEditDocente", "Teacher")" id="nuevo-boton" class="btn btn-success btn-sm pull-right">Nuevo Docente</a>
 <br />
 <hr />
 <table class="table table-striped table-responsive table-condensed">
@@ -45,8 +45,8 @@
                 <td>@docente.Sexo</td>
                 <td>@docente.Facultad.Nombre</td>
                 <td>
-                    <a class="btn btn-sm btn-primary" href="@Url.Action("AddEditDocente", "Teacher", new { @DocenteId = docente.Id })">Editar</a>
-                    <a class="btn btn-sm btn-danger anchorDetail" data-id="@docente.Id">Eliminar</a>
+                    <a id="edit-button" class="btn btn-sm btn-primary" href="@Url.Action("AddEditDocente", "Teacher", new { @DocenteId = docente.Id })">Editar</a>
+                    <a id="delete-button" class="btn btn-sm btn-danger anchorDetail" data-id="@docente.Id">Eliminar</a>
                 </td>
             </tr>
         }

@@ -2,7 +2,7 @@
     var flashMessage = TempData["FlashMessage"];
     if (flashMessage != null)
     {
-        <div class="@TempData["FlashMessageType"]">
+        <div id="respuesta" class="@TempData["FlashMessageType"]">
             @flashMessage
         </div>
     }

@@ -9,51 +9,46 @@
             <div class="col-md-4">
                 <div class="form-group">
                     @Html.LabelFor(x => x.Nombre, new { @class = "control-label" })
-                    @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control" })
+                    @Html.TextBoxFor(x => x.Nombre, new { @id = "name", @class = "form-control" })
                     @Html.ValidationMessageFor(x => x.Nombre, "", new { @class = "text-danger-" })
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(x => x.Apellido, new { @class = "control-label" })
-                    @Html.TextBoxFor(x => x.Apellido, new { @class = "form-control" })
+                    @Html.TextBoxFor(x => x.Apellido, new { @id = "apellido", @class = "form-control" })
                     @Html.ValidationMessageFor(x => x.Apellido, "", new { @class = "text-danger-" })
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="display:none;">
                     @Html.LabelFor(x => x.DNI, new { @class = "control-label" })
-                    @Html.TextBoxFor(x => x.DNI, new { @class = "form-control" })
+                    @Html.TextBoxFor(x => x.DNI, "85129635", new { @class = "form-control" })
                     @Html.ValidationMessageFor(x => x.DNI, "", new { @class = "text-danger-" })
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(x => x.FechaNacimiento, new { @class = "control-label" })
-                    @Html.TextBoxFor(x => x.FechaNacimiento, new { @class = "form-control" })
+                    @Html.TextBoxFor(x => x.FechaNacimiento, new { @id = "Fnacimiento", @class = "form-control" })
                     @Html.ValidationMessageFor(x => x.FechaNacimiento, "", new { @class = "text-danger-" })
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(x => x.Descripcion, new { @class = "control-label" })
-                    @Html.TextAreaFor(x => x.Descripcion, new { @class = "form-control" })
+                    @Html.TextAreaFor(x => x.Descripcion, new { @id = "descripcion", @class = "form-control" })
                     @Html.ValidationMessageFor(x => x.Descripcion, "", new { @class = "text-danger-" })
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    @Html.LabelFor(x => x.FacultadId, new { @class = "control-label" })
-                    @Html.DropDownListFor(x => x.FacultadId, new SelectList(Model.LstFacultad, "Id", "Nombre"), "", new { @class = "form-control" })
-                </div>
-                <div class="form-group">
                     @Html.LabelFor(x => x.Sexo, new { @class = "control-label" })
                     <br />
-                    <label class=control-label>M</label> @Html.RadioButtonFor(x => x.Sexo, "M")
-                    <label class=control-label>F</label> @Html.RadioButtonFor(x => x.Sexo, "F")
+                    <label class=control-label>M</label> @Html.RadioButtonFor(x => x.Sexo, "M", new { @id = "sexo1" })
+                    <label class=control-label>F</label> @Html.RadioButtonFor(x => x.Sexo, "F", new { @id = "sexo2" })
                     @Html.ValidationMessageFor(x => x.Sexo, "", new { @class = "text-danger-" })
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(x => x.Bonificacion, new { @class = "control-label" })
-                    @Html.CheckBoxFor(x => x.Bonificacion)
-                    @Html.ValidationMessageFor(x => x.Bonificacion, "", new { @class = "text-danger-" })
+                    @Html.LabelFor(x => x.FacultadId, new { @class = "control-label" })
+                    @Html.DropDownListFor(x => x.FacultadId, new SelectList(Model.LstFacultad, "Id", "Nombre"), new { @id = "facultad", @class = "form-control" })
                 </div>
             </div>
             <div class="clearfix"></div>
             <div class="form-group" style="margin-left:0px;">
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button id="guardar" type="submit" class="btn btn-primary">Guardar</button>
             </div>
         </form>
     </div>
